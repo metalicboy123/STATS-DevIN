@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Acc_Set_Up_Activity">
+
+    <RelativeLayout
+        android:layout_width="1350dp"
+        android:layout_height="500dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/edit_text_shape"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="500dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:ems="10"
+            android:hint="ID"
+            android:inputType="textPersonName"
+            android:padding="10px"
+            android:textSize="40px" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="500dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="200dp"
+            android:ems="10"
+            android:hint="First Name"
+            android:inputType="textPersonName"
+            android:padding="10px"
+            android:textSize="40px" />
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="190dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="580dp"
+            android:layout_marginTop="200dp"
+            android:ems="10"
+            android:hint="M. I"
+            android:inputType="textPersonName"
+            android:padding="10px"
+            android:textSize="40px" />
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="500dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="795dp"
+            android:layout_marginTop="200dp"
+            android:ems="10"
+            android:hint="Last Name"
+            android:inputType="textPersonName"
+            android:padding="10px"
+            android:textSize="40px" />
+
+        <EditText
+            android:id="@+id/editText5"
+            android:layout_width="500dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="350dp"
+            android:ems="10"
+            android:hint="Phone Number"
+            android:inputType="textPersonName"
+            android:padding="10px"
+            android:textSize="40px" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="1350dp"
+        android:layout_height="330dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="580dp"
+        android:background="@drawable/edit_text_shape"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editText6"
+            android:layout_width="500dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            android:padding="10px"
+            android:textSize="40px" />
+
+        <EditText
+            android:id="@+id/editText7"
+            android:layout_width="500dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="580dp"
+            android:layout_marginTop="50dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPersonName"
+            android:padding="10px"
+            android:textSize="40px" />
+
+        <EditText
+            android:id="@+id/editText8"
+            android:layout_width="500dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="200dp"
+            android:ems="10"
+            android:hint="MY ACCESS CODE"
+            android:inputType="textPersonName"
+            android:padding="10px"
+            android:textSize="40px" />
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1540dp"
+        android:layout_marginTop="700dp"
+        android:padding="20px"
+        android:textSize="50px"
+        android:text="SUBMIT"/>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="350dp"
+        android:layout_height="500dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="1500dp"
+        android:src="@drawable/user_setup"/>
+
+</RelativeLayout>

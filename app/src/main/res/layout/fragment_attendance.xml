@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AttendanceFragment">
+
+    <LinearLayout
+        android:id="@+id/topLinearView"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+       <Button
+           android:layout_weight="1"
+           android:background="@android:color/transparent"
+           android:text="SY : 2017-2018"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:text="Term : 2nd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:text="Section : BSIT 3101"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:text="Subject : MATH PLUS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:text="Class : 10A0BH8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/bottomLinearView"
+        android:paddingLeft="20px"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:text="-"
+                    android:background="@android:color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:text="Present"
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+                <Button
+                    android:text="-"
+                    android:background="@android:color/holo_green_dark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:text="Excuse"
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:text="-"
+                    android:background="@android:color/holo_red_dark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:text="Absent"
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+                <Button
+                    android:text="-"
+                    android:background="@android:color/holo_orange_dark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:paddingLeft="5dp"
+                    android:text="Cutting Classes"
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <Button
+                    android:text="-"
+                    android:background="@color/colorPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:text="Late"
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                android:text="Wednesday"
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+                <Button
+                    android:text="11/01/18"
+                    android:background="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Button
+                    android:text="Submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+       <LinearLayout
+           android:gravity="center"
+           android:layout_weight="1"
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+
+           <Button
+               android:background="@android:color/transparent"
+               android:text="Today's Attendance"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+           <ImageView
+               android:src="@drawable/attendance_graph"
+               android:layout_width="200px"
+               android:layout_height="200px" />
+
+       </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/seatRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomLinearView"
+        android:layout_below="@+id/topLinearView"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="-2dp"
+        android:layout_marginBottom="2dp"
+        android:padding="20dp" />
+
+</RelativeLayout>

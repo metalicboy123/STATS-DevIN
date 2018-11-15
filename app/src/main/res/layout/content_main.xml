@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/app_bar_main"
+    >
+
+    <LinearLayout
+        android:id="@+id/buttonViewHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dashboardButton"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dashboard"
+            />
+
+        <Button
+            android:id="@+id/attendanceButton"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Attendance"
+            />
+
+        <Button
+            android:id="@+id/recordingSheetButton"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recording Sheet"
+            />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/main_frame_layout"
+        android:layout_above="@+id/buttonViewHolder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+</FrameLayout>
+</RelativeLayout>
