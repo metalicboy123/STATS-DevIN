@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context=".DashboardFragment">
+    tools:context=".DashboardFragment"
+    android:background="@color/col_2">
 
     <LinearLayout
         android:layout_weight="1"
@@ -18,10 +19,11 @@
             <Button
                 android:layout_weight="1"
                 android:text="Reminder"
+                android:background="@android:color/transparent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Button
-                android:text="Add"
+                android:text="New"
                 android:id="@+id/addReminderButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -44,7 +46,8 @@
         <Button
             android:text="To Do"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"/>
         <ListView
             android:id="@+id/todoListView"
             android:layout_width="match_parent"
@@ -67,11 +70,8 @@
                 android:layout_weight="1"
                 android:text="Student Update"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <Button
-                android:text="Show all"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"/>
         </LinearLayout>
         <ListView
             android:id="@+id/studentUpdateListView"

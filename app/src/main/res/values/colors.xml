@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <!--<color name="colorPrimary">#008577</color>-->
+    <!--<color name="colorPrimaryDark">#00574B</color>-->
+    <!--<color name="colorAccent">#D81B60</color>-->
+    <color name="colorPrimary">#3F5866</color>
+    <color name="colorPrimaryDark">#2B3A42</color>
+    <color name="colorAccent">#FAA21B</color>
 
     <color name="gray">#d9d9d9</color>
     <color name="white">#fff</color>
+
+    <color name="dark_selected">#bfbfbf</color>
+
+    <color name="col_1">#34495e</color>
+    <color name="col_2">#F0F0DF</color>
+
+    <color name="col_3">#375C8C</color>
+    <color name="col_4">#BDD3DE</color>
+
+    <color name="striped">#f5f2f2</color>
+
+    <color name="btn_success">#5AC467</color>
+
 </resources>

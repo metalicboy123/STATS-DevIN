@@ -15,7 +15,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    NavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,11 +25,16 @@ public class MainActivity extends AppCompatActivity
 
         switchFragment(new DashboardFragment());
 
+        findViewById(R.id.dashboardButton).setBackgroundColor(getResources().getColor(R.color.dark_selected));
+
         findViewById(R.id.dashboardButton)
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         switchFragment(new DashboardFragment());
+                        findViewById(R.id.dashboardButton).setBackgroundColor(getResources().getColor(R.color.dark_selected));
+                        findViewById(R.id.attendanceButton).setBackgroundColor(getResources().getColor(R.color.gray));
+                        findViewById(R.id.recordingSheetButton).setBackgroundColor(getResources().getColor(R.color.gray));
                     }
                 });
         findViewById(R.id.attendanceButton)
@@ -37,6 +42,9 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void onClick(View view) {
                         switchFragment(new AttendanceFragment());
+                        findViewById(R.id.attendanceButton).setBackgroundColor(getResources().getColor(R.color.dark_selected));
+                        findViewById(R.id.dashboardButton).setBackgroundColor(getResources().getColor(R.color.gray));
+                        findViewById(R.id.recordingSheetButton).setBackgroundColor(getResources().getColor(R.color.gray));
                     }
                 });
         findViewById(R.id.recordingSheetButton)
@@ -44,6 +52,9 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void onClick(View view) {
                         switchFragment(new RecordingSheetFragment());
+                        findViewById(R.id.recordingSheetButton).setBackgroundColor(getResources().getColor(R.color.dark_selected));
+                        findViewById(R.id.attendanceButton).setBackgroundColor(getResources().getColor(R.color.gray));
+                        findViewById(R.id.dashboardButton).setBackgroundColor(getResources().getColor(R.color.gray));
                     }
                 });
 
@@ -54,12 +65,10 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
-
-
+        navigationView.getMenu().getItem(0).getSubMenu().getItem(0).setChecked(true);
 
         /*        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -116,17 +125,15 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        navigationView.getMenu().getItem(0).getSubMenu().getItem(0).setChecked(false);
+
+        if (id == R.id.nav_home) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_maintenance) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_utilities) {
 
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_reports) {
 
         }
 

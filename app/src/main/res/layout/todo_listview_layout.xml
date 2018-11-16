@@ -11,40 +11,35 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <TextView
-            android:id="@+id/title"
-            android:text="Sample date"
             android:layout_weight="1"
+            android:id="@+id/title"
+            android:text="Sample text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
-
         <TextView
-            android:id="@+id/subtitle"
-            android:text="Sample date"
+            android:id="@+id/date"
+            android:text="Sample text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <TextView
-            android:id="@+id/day"
             android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sample data" />
-
-        <TextView
-            android:id="@+id/date"
-            android:text="Sample data"
+            android:id="@+id/subtitle"
+            android:text="Sample text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+        <TextView
+            android:id="@+id/time"
+            android:text="Sample text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
+
 </LinearLayout>

@@ -12,6 +12,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,15 +23,23 @@ import java.util.Date;
 class ReminderClass{
 
     int id;
-    String title,subtitle,day,date;
 
-    public ReminderClass(int id, String title,String subtitle,String day, String date){
+    String subject;
+    String time;
+    String date;
+    String location;
+    String agenda;
+
+
+    public ReminderClass(int id,String subject,String time,String date,String location,String agenda){
         this.id = id;
-        this.title = title;
-        this.subtitle = subtitle;
-        this.day = day;
+        this.subject = subject;
+        this.time = time;
         this.date = date;
+        this.location = location;
+        this.agenda = agenda;
     }
+
     public int getId() {
         return id;
     }
@@ -36,28 +48,28 @@ class ReminderClass{
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getSubject() {
+        return subject;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
-    public String getSubtitle() {
-        return subtitle;
+    public String getLocation() {
+        return location;
     }
 
-    public void setSubtitle(String subtitle) {
-        this.subtitle = subtitle;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public String getDay() {
-        return day;
+    public String getTime() {
+        return time;
     }
 
-    public void setDay(String day) {
-        this.day = day;
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getDate() {
@@ -66,6 +78,14 @@ class ReminderClass{
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getAgenda() {
+        return agenda;
+    }
+
+    public void setAgenda(String agenda) {
+        this.agenda = agenda;
     }
 
 
@@ -101,11 +121,10 @@ class ReminderListAdapter extends BaseAdapter{
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.fragment_reminder,null);
 
-        ((TextView)view.findViewById(R.id.title)).setText(reminderList.get(i).getTitle());
-        ((TextView)view.findViewById(R.id.subtitle)).setText(reminderList.get(i).getSubtitle());
-        ((TextView)view.findViewById(R.id.day)).setText(reminderList.get(i).getDay());
+        ((TextView)view.findViewById(R.id.title)).setText(reminderList.get(i).getSubject());
+        ((TextView)view.findViewById(R.id.subtitle)).setText(reminderList.get(i).getLocation());
+        ((TextView)view.findViewById(R.id.day)).setText(reminderList.get(i).getTime());
         ((TextView)view.findViewById(R.id.date)).setText(reminderList.get(i).getDate());
-
         return view;
     }
 }
@@ -114,12 +133,14 @@ class TodoClass{
     String title;
     String subtitle;
     String day;
+    String date;
 
-    public TodoClass(int id,String title,String subtitle,String day){
+    public TodoClass(int id,String title,String subtitle,String day,String date){
         this.id = id;
         this.title = title;
         this.subtitle = subtitle;
         this.day = day;
+        this.date = date;
     }
 
     public int getId() {
@@ -162,7 +183,6 @@ class TodoClass{
         this.date = date;
     }
 
-    String date;
 }
 class TodoListAdapter extends BaseAdapter{
     Context context;
@@ -190,6 +210,14 @@ class TodoListAdapter extends BaseAdapter{
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        view = inflater.inflate(R.layout.todo_listview_layout,null);
+
+        ((TextView)view.findViewById(R.id.title)).setText(todoList.get(i).getTitle());
+        ((TextView)view.findViewById(R.id.subtitle)).setText(todoList.get(i).getSubtitle());
+        ((TextView)view.findViewById(R.id.date)).setText(todoList.get(i).getDate());
+        ((TextView)view.findViewById(R.id.time)).setText(todoList.get(i).getDay());
+
         return view;
     }
 }
@@ -265,10 +293,14 @@ class StudentListAdapter extends BaseAdapter{
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        view = inflater.inflate(R.layout.student_update_list_layout,null);
+        ((TextView)view.findViewById(R.id.studentName)).setText(studentList.get(i).getName());
+        ((TextView)view.findViewById(R.id.studentSubject)).setText(studentList.get(i).getSubject());
+        ((TextView)view.findViewById(R.id.studentRemarks)).setText(studentList.get(i).getRemarks());
         return view;
     }
 }
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -279,17 +311,35 @@ public class DashboardFragment extends Fragment {
     ListView reminderListView;
     ReminderListAdapter reminderListAdapter;
     ArrayList<ReminderClass> reminderClass = new ArrayList<>();
+    Firebase myFirebase;
+
+    ListView todoListView;
+    TodoListAdapter todoListAdapter;
+    ArrayList<TodoClass> todoClass = new ArrayList<>();
+
+    ListView studentListView;
+    StudentListAdapter studentListAdapter;
+    ArrayList<StudentUpdateClass> studentUpdateClass = new ArrayList<>();
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
+        Firebase.setAndroidContext(getActivity());
+        myFirebase = new Firebase("https://statsreminders.firebaseio.com/");
 
         contentView = inflater.inflate(R.layout.fragment_dashboard,null);
 
         reminderListView = (ListView) contentView.findViewById(R.id.reminderListView);
         reminderListAdapter = new ReminderListAdapter(getActivity(),reminderClass);
 
+        todoListView = (ListView) contentView.findViewById(R.id.todoListView);
+        todoListAdapter = new TodoListAdapter(getActivity(),todoClass);
+
+        studentListView = (ListView) contentView.findViewById(R.id.studentUpdateListView);
+        studentListAdapter = new StudentListAdapter(getActivity(),studentUpdateClass);
 
         contentView.findViewById(R.id.addReminderButton)
                 .setOnClickListener(new View.OnClickListener() {
@@ -299,13 +349,46 @@ public class DashboardFragment extends Fragment {
                     }
                 });
 
+        addTodoData();
+        addStudentData();
+
         return contentView;
     }
 
+    public void addStudentData(){
+        studentListView.setAdapter(studentListAdapter);
+        studentUpdateClass.add(new StudentUpdateClass(0,"Carl Alexon M. Patan-ao","MATH_IT1101","3 Absences"));
+        studentUpdateClass.add(new StudentUpdateClass(0,"Ronelio M. Mesa","MATH_IT1101","Prelim failed"));
+        studentUpdateClass.add(new StudentUpdateClass(0,"Kevin B. Fontanoza","MATH_IT1101","2 Absences"));
+        studentUpdateClass.add(new StudentUpdateClass(0,"Micky Q. Mojado","MATH_IT1101","1 Absent"));
+        studentUpdateClass.add(new StudentUpdateClass(0,"Kim J. Hermano","MATH_IT1101","5 Absences"));
+        studentUpdateClass.add(new StudentUpdateClass(0,"Renato S. Singcol","MATH_IT1101","Pre-lim failed"));
+        studentUpdateClass.add(new StudentUpdateClass(0,"Abeln V. Jumao-as","MATH_IT1101","1 Absences"));
+        studentUpdateClass.add(new StudentUpdateClass(0,"Mia C. Dalanon","MATH_IT1101","2 Absences"));
+        studentUpdateClass.add(new StudentUpdateClass(0,"Rico J. Belusco","MATH_IT1101","3 Absences"));
+        studentUpdateClass.add(new StudentUpdateClass(0,"Arnold D. Cuevo","MATH_IT1101","6 Absences"));
+        studentUpdateClass.add(new StudentUpdateClass(0,"Letchard G. Quizol","MATH_IT1101","5 Absences"));
+        studentUpdateClass.add(new StudentUpdateClass(0,"Siason D. Diego","MATH_IT1101","1 Absences"));
+        studentListAdapter.notifyDataSetChanged();
+    }
+
+    public void addTodoData(){
+        todoListView.setAdapter(todoListAdapter);
+        todoClass.add(new TodoClass(0,"Math_ABM101","Pending Quiz Scores","Monday","11/16/18"));
+        todoClass.add(new TodoClass(0,"Copro_IT1101","Pending Exam Scores","Monday","11/16/18"));
+        todoClass.add(new TodoClass(0,"Datstruc_ASCT2102","Pending Exam Scorses","Monday","11/16/18"));
+        todoClass.add(new TodoClass(0,"Forlang_BSIT4101","Pending Quiz Scores","Monday","11/16/18"));
+        todoClass.add(new TodoClass(0,"Disruct_BSIT2101","Pending Meet-up Scores","Monday","11/16/18"));
+        todoClass.add(new TodoClass(0,"Alegbra_2101","Make-up Class","Monday","11/16/18"));
+        todoClass.add(new TodoClass(0,"Prostat_3101","Pending Quiz Scores","Monday","11/16/18"));
+
+    }
+
     public void addReminderData(ReminderClass rClass){
-        reminderClass.add(rClass);
+        reminderClass.add(0,rClass);
         reminderListAdapter.notifyDataSetChanged();
         reminderListView.setAdapter(reminderListAdapter);
+        reminderListView.smoothScrollToPosition(0);
     }
 
     public void showAddReminderDialog(){
@@ -328,7 +411,14 @@ public class DashboardFragment extends Fragment {
                                         String time = ((TextView)reminderView.findViewById(R.id.time)).getText().toString();
                                         String location = ((TextView)reminderView.findViewById(R.id.location)).getText().toString();
                                         String agenda = ((TextView)reminderView.findViewById(R.id.agenda)).getText().toString();
-                                        addReminderData(new ReminderClass(0,subject,location,time,currentDate));
+                                        addReminderData(new ReminderClass(0,subject,location,time,currentDate,agenda));
+                                        myFirebase.child("sample").push().setValue(new ReminderClass(0,subject,location,time,currentDate,agenda),
+                                                new Firebase.CompletionListener() {
+                                                    @Override
+                                                    public void onComplete(FirebaseError firebaseError, Firebase firebase) {
+                                                        Toast.makeText(getActivity(),"Reminder Successfully Added",Toast.LENGTH_SHORT);
+                                                    }
+                                                });
                                         dialogInterface.dismiss();
                                     }
                                 })
@@ -346,11 +436,6 @@ public class DashboardFragment extends Fragment {
                                 dialogInterface.dismiss();
                             }
                         });
-
-
-
-
-
 
         alertDialog.show();
     }

@@ -131,7 +131,8 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingBottom="20dp">
                 <Button
                     android:text="-"
                     android:background="@color/colorPrimary"
@@ -151,7 +152,8 @@
             android:layout_weight="1"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingBottom="20dp">
             <LinearLayout
                 android:gravity="center"
                 android:layout_weight="1"
@@ -164,11 +166,18 @@
                 android:background="@android:color/transparent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-                <Button
+                <!--<Button
                     android:text="11/01/18"
                     android:background="@android:color/transparent"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content" />-->
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/dateString"
+                    />
 
             </LinearLayout>
 
@@ -176,11 +185,16 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:paddingBottom="20dp">
                 <Button
                     android:text="Submit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:background="@drawable/btn_success_shape"
+                    android:textStyle="bold"/>
             </LinearLayout>
 
 

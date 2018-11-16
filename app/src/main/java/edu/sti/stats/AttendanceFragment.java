@@ -4,6 +4,7 @@ package edu.sti.stats;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -57,6 +58,7 @@ class SeatViewAdapter extends RecyclerView.Adapter<SeatViewAdapter.ViewHolder> {
     Context context;
     ArrayList<SeatClass> seatList;
     View attendanceOptionView;
+    int statusPosition = 0;
 
     public SeatViewAdapter(Context context,ArrayList<SeatClass> seatList){
         this.context = context;
@@ -83,13 +85,40 @@ class SeatViewAdapter extends RecyclerView.Adapter<SeatViewAdapter.ViewHolder> {
             @Override
             public void onClick(View view) {
 
+                final String status[] = {"Present","Absent","Late","Excuse","Cutting Classes"};
                 final AlertDialog.Builder
                         builder = new AlertDialog.Builder(context)
-                        .setTitle("Select status")
-                        .setView(attendanceOptionView)
+                        .setTitle("Select "+seatList.get(position).getCompleteName()+"'s status")
+                        .setSingleChoiceItems(status, 0, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                statusPosition = i;
+                            }
+                        })
                         .setNegativeButton("Close", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .setPositiveButton("Done", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                if(status[statusPosition]=="Present"){
+                                    setCardViewStyle(holder.itemView,"#ffffffff","#ff000000");
+                                }
+                                if(status[statusPosition]=="Absent"){
+                                    setCardViewStyle(holder.itemView,"#ffcc0000","#ffffffff");
+                                }
+                                if(status[statusPosition]=="Late"){
+                                    setCardViewStyle(holder.itemView,"#00574B","#ffffffff");
+                                }
+                                if(status[statusPosition]=="Excuse"){
+                                    setCardViewStyle(holder.itemView,"#ff669900","#ffffffff");
+                                }
+                                if(status[statusPosition]=="Cutting Classes"){
+                                    setCardViewStyle(holder.itemView,"#ffff8800","#ffffffff");
+                                }
                                 dialogInterface.dismiss();
                             }
                         });
@@ -101,11 +130,11 @@ class SeatViewAdapter extends RecyclerView.Adapter<SeatViewAdapter.ViewHolder> {
 
     }
 
-    private void setCardViewStyle(View aov,int bgColor, int textColor){
-        ((CardView)aov.findViewById(R.id.seatViewCardView)).setBackgroundColor(bgColor);
-        ((TextView)aov.findViewById(R.id.studentID)).setTextColor(textColor);
-        ((TextView)aov.findViewById(R.id.studentInitials)).setTextColor(textColor);
-        ((TextView)aov.findViewById(R.id.studentName)).setTextColor(textColor);
+    private void setCardViewStyle(View aov,String bgColor, String textColor){
+        ((CardView)aov.findViewById(R.id.seatViewCardView)).setBackgroundColor(Color.parseColor(bgColor));
+        ((TextView)aov.findViewById(R.id.studentID)).setTextColor(Color.parseColor(textColor));
+        ((TextView)aov.findViewById(R.id.studentInitials)).setTextColor(Color.parseColor(textColor));
+        ((TextView)aov.findViewById(R.id.studentName)).setTextColor(Color.parseColor(textColor));
     }
 
     @Override
