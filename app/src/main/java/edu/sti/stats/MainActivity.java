@@ -1,6 +1,7 @@
 package edu.sti.stats;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -132,8 +133,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_maintenance) {
 
         } else if (id == R.id.nav_utilities) {
-
+            startActivity(new Intent(this,ScoreActivity.class));
         } else if (id == R.id.nav_reports) {
+            startActivity(new Intent(this,Score.class));
 
         }
 

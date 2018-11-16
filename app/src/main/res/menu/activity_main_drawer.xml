@@ -10,20 +10,16 @@
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_home"
-                    android:icon="@drawable/ic_menu_gallery"
                     android:title="Home" />
                 <item
                     android:id="@+id/nav_maintenance"
-                    android:icon="@drawable/ic_menu_manage"
                     android:title="File Maintenance" />
                 <item
                     android:id="@+id/nav_utilities"
-                    android:icon="@drawable/ic_menu_slideshow"
-                    android:title="Utilities" />
+                    android:title="Grade Analysis" />
                 <item
                     android:id="@+id/nav_reports"
-                    android:icon="@drawable/ic_menu_send"
-                    android:title="Reports" />
+                    android:title="Score Analysis" />
             </group>
         </menu>
     </item>
