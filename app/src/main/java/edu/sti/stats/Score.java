@@ -57,7 +57,7 @@ public class Score extends AppCompatActivity {
                 "\t</style>\n" +
                 "</head>\n" +
                 "<body>\n" +
-                "\t<table style=\"\">\n" +
+                "\t<center><table style=\"\">\n" +
                 "\t\t<thead>\n" +
                 "\t\t\t<th>Title</th>\n" +
                 "\t\t\t<th>Component</th>\n" +
@@ -69,7 +69,7 @@ public class Score extends AppCompatActivity {
                 "\t\t\t\t<td class='number'>Fractions</td>\n" +
                 "\t\t\t\t<td class='number'>Quiz</td>\n" +
                 "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h2 style=\"background-color:rgb(0, 255, 0);text-align: left; width: 500px;\">100%<br></h2>\n" +
+                "\t\t\t\t\t<h2 style=\"background-color:rgb(0, 255, 0);text-align: left; width: 400px;\">80%<br></h2>\n" +
                 "\n" +
                 "\t\t\t\t</td>\n" +
                 "\t\t\t\t<td class='number'>4</td>\n" +
@@ -78,7 +78,7 @@ public class Score extends AppCompatActivity {
                 "\t\t\t\t<td class='number'>Spelling</td>\n" +
                 "\t\t\t\t<td class='number'>Quiz</td>\n" +
                 "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h2 style=\"background-color:rgb(0, 255, 0);text-align: left; width: 255px;\">50%<br></h2>\n" +
+                "\t\t\t\t\t<h2 style=\"background-color:rgb(0, 255, 0);text-align: left; width: 500px;\">100%<br></h2>\n" +
                 "\n" +
                 "\t\t\t\t</td>\n" +
                 "\t\t\t\t<td class='number'>3</td>\n" +
@@ -87,13 +87,40 @@ public class Score extends AppCompatActivity {
                 "\t\t\t\t<td class='number'>Long Quiz</td>\n" +
                 "\t\t\t\t<td class='number'>Quiz</td>\n" +
                 "\t\t\t\t<td>\n" +
-                "\t\t\t\t\t<h2 style=\"background-color:rgb(0, 255, 0);text-align: left; width: 255px;\">50%<br></h2>\n" +
+                "\t\t\t\t\t<h2 style=\"background-color:rgb(0, 255, 0);text-align: left; width: 425px;\">85%<br></h2>\n" +
                 "\n" +
                 "\t\t\t\t</td>\n" +
                 "\t\t\t\t<td class='number'>3</td>\n" +
                 "\t\t\t</tr>\n" +
+                "\t\t\t<tr>\n" +
+                "\t\t\t\t<td class='number'>Binomials</td>\n" +
+                "\t\t\t\t<td class='number'>Assignment</td>\n" +
+                "\t\t\t\t<td>\n" +
+                "\t\t\t\t\t<h2 style=\"background-color:rgb(255, 0 , 0);text-align: left; width: 375px;\">75%<br></h2>\n" +
+                "\n" +
+                "\t\t\t\t</td>\n" +
+                "\t\t\t\t<td class='number'>4</td>\n" +
+                "\t\t\t</tr>\n" +
+                "\t\t\t<tr>\n" +
+                "\t\t\t\t<td class='number'>Spelling</td>\n" +
+                "\t\t\t\t<td class='number'>Quiz</td>\n" +
+                "\t\t\t\t<td>\n" +
+                "\t\t\t\t\t<h2 style=\"background-color:rgb(0, 255, 0);text-align: left; width: 425px;\">85%<br></h2>\n" +
+                "\n" +
+                "\t\t\t\t</td>\n" +
+                "\t\t\t\t<td class='number'>3</td>\n" +
+                "\t\t\t</tr>\n" +
+                "\t\t\t<tr>\n" +
+                "\t\t\t\t<td class='number'>Long Quiz</td>\n" +
+                "\t\t\t\t<td class='number'>Quiz</td>\n" +
+                "\t\t\t\t<td>\n" +
+                "\t\t\t\t\t<h2 style=\"background-color:rgb(0, 255, 0);text-align: left; width: 425px;\">85%<br></h2>\n" +
+                "\n" +
+                "\t\t\t\t</td>\n" +
+                "\t\t\t\t<td class='number'>0</td>\n" +
+                "\t\t\t</tr>\n" +
                 "\t\t</tbody>\n" +
-                "\t</table>\n" +
+                "\t</table></center>\n" +
                 "</body>\n" +
                 "</html>";
 
